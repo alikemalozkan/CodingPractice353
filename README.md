@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Coding Practice and Interview System
 
 You can use the [editor on GitHub](https://github.com/alikemalozkan/CS353--Coding-Practice/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
