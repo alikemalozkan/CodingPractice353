@@ -13,8 +13,11 @@ Arif Usta
 
 
 ### Reports
+[Project Proposal](https://github.com/alikemalozkan/CS353--Coding-Practice/)<br />
+[Design Report](https://github.com/alikemalozkan/CS353--Coding-Practice/)<br />
+[Final Report](https://github.com/alikemalozkan/CS353--Coding-Practice/)<br />
 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/alikemalozkan/CS353--Coding-Practice/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
 
 
