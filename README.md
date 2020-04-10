@@ -1,6 +1,6 @@
-## Coding Practice and Interview System
+## MasterCoding
 
-Coding Practice and Interview System will provide a platform for companies and users. Using this platform users will be able to practice coding, join tracks and companies will be able to interview and hire users. 
+MasterCoding will provide a platform for companies and users. Using this platform users will be able to practice coding, join tracks and companies will be able to interview and hire users. 
 
 ### Group Members
 Tanay Toksoy<br />
