@@ -14,7 +14,7 @@ Arif Usta
 
 ### Reports
 [Project Proposal](https://github.com/alikemalozkan/CodingPractice353/raw/master/Proposal.pdf)<br />
-[Design Report](https://github.com/alikemalozkan/CS353--Coding-Practice/)<br />
+[Design Report](https://github.com/alikemalozkan/CS353--Coding-Practice/raw/master/database_design_report.pdf)<br />
 [Final Report](https://github.com/alikemalozkan/CS353--Coding-Practice/)<br />
 
 
