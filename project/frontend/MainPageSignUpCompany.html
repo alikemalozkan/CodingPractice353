@@ -1,0 +1,307 @@
+<html>
+<head>
+<title>MainPageSignUpCompany</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/Javascript">
+		var username;
+		var fullname;
+		var emailAddress;
+		var password;
+		var address;
+		function foo()
+		{
+			username = document.getElementById("text5").value;
+			fullname = document.getElementById("text6").value;	    
+            emailAddress = document.getElementById("text7").value;
+			password = document.getElementById("text8").value;
+			sendJSON();
+			//nextUrl();
+		}
+	 	function nextUrl()
+        {
+            window.location.href = "MainPageLogInCompany.html";
+        }
+		function sendJSON(){ 
+          
+            // Creating a XHR object 
+			let result = document.querySelector('.result'); 
+            let xhr = new XMLHttpRequest(); 
+            let url = "http://localhost:8080/Company/add"; 
+        
+            // open a connection 
+            xhr.open("POST", url, true); 
+  
+            // Set the request header i.e. which type of content you are sending 
+            xhr.setRequestHeader("Content-Type", "application/json"); 
+  
+            // Create a state change callback 
+            xhr.onreadystatechange = function () { 
+                if (xhr.readyState === 4 && xhr.status === 200) { 
+  
+                    // Print received data from server 
+                    result.innerHTML = this.responseText; 
+  
+                } 
+            }; 
+  
+            // Converting JSON data to string 
+            var data = JSON.stringify({"address": "Invalid" ,"email" : emailAddress,"name": fullname,"password": password, "username":username } ); 
+ 
+            // Sending data with the request 
+            xhr.send(data); 
+        }
+	</script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- Save for Web Slices (MainPageSignUpCompany.psd) -->
+<table id="Table_01" width="1920" height="1080" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_01.gif" width="710" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_02.gif" width="11" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_03.gif" width="57" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_04.gif" width="176" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_05.gif" width="176" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_06.gif" width="57" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_07.gif" width="13" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_08.gif" width="2" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_09.gif" width="718" height="286" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_10.gif" width="710" height="74" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_11.gif" width="11" height="74" alt=""></td>
+		<td colspan="2">
+			<img src="images/MainPageSignUpCompany_SignUpButton.gif" width="233" height="74" alt=""></td>
+		<td colspan="2">
+			<a href="MainPageLogInCompany.html"><img src="images/MainPageSignUpCompany_LogInButton.gif" width="233" height="74" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_14.gif" width="13" height="74" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_15.gif" width="2" height="74" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_16.gif" width="718" height="74" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_17.gif" width="710" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_18.gif" width="11" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_19.gif" width="57" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_20.gif" width="176" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_21.gif" width="176" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_22.gif" width="57" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_23.gif" width="13" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_24.gif" width="2" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_25.gif" width="718" height="7" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_26.gif" width="710" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_27.gif" width="11" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_28.gif" width="57" height="56" alt=""></td>
+		<td>
+			<a href="MainPageSignUpDeveloper.html"><img src="images/MainPageSignUpCompany_DeveloperButton.gif" width="176" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_CompanyButton.gif" width="176" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_31.gif" width="57" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_32.gif" width="13" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_33.gif" width="2" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_34.gif" width="718" height="56" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_35.gif" width="710" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_36.gif" width="11" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_37.gif" width="57" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_38.gif" width="176" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_39.gif" width="176" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_40.gif" width="57" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_41.gif" width="13" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_42.gif" width="2" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_43.gif" width="718" height="106" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_44.gif" width="710" height="47" alt=""></td>
+		<td colspan="6" width="490" height="47" background="images/MainPageSignUpCompany_UsernameText.gif" valign="middle"><input type="text" id = "text5" >
+			</td>
+		<td>
+			<img src="images/MainPageSignUpCompany_46.gif" width="2" height="47" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_47.gif" width="718" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_48.gif" width="710" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_49.gif" width="11" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_50.gif" width="57" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_51.gif" width="176" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_52.gif" width="176" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_53.gif" width="57" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_54.gif" width="13" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_55.gif" width="2" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_56.gif" width="718" height="14" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_57.gif" width="710" height="47" alt=""></td>
+		<td colspan="6" width="490" height="47" background="images/MainPageSignUpCompany_NameText.gif" valign="middle"><input type="text" id = "text6" >
+			</td>
+		<td>
+			<img src="images/MainPageSignUpCompany_59.gif" width="2" height="47" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_60.gif" width="718" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_61.gif" width="710" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_62.gif" width="11" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_63.gif" width="57" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_64.gif" width="176" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_65.gif" width="176" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_66.gif" width="57" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_67.gif" width="13" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_68.gif" width="2" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_69.gif" width="718" height="22" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_70.gif" width="710" height="47" alt=""></td>
+		<td colspan="6" width="490" height="47" background="images/MainPageSignUpCompany_EmailText.gif" valign="middle"><input type="text" id = "text7" >
+			</td>
+		<td>
+			<img src="images/MainPageSignUpCompany_72.gif" width="2" height="47" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_73.gif" width="718" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_74.gif" width="710" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_75.gif" width="11" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_76.gif" width="57" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_77.gif" width="176" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_78.gif" width="176" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_79.gif" width="57" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_80.gif" width="13" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_81.gif" width="2" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_82.gif" width="718" height="20" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_83.gif" width="710" height="47" alt=""></td>
+		<td colspan="6" width="490" height="47" background="images/MainPageSignUpCompany_PasswordText.gif" valign="middle"><input type="password" id = "text8" >
+			</td>
+		<td>
+			<img src="images/MainPageSignUpCompany_85.gif" width="2" height="47" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_86.gif" width="718" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_87.gif" width="710" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_88.gif" width="11" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_89.gif" width="57" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_90.gif" width="176" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_91.gif" width="176" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_92.gif" width="57" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_93.gif" width="13" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_94.gif" width="2" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_95.gif" width="718" height="40" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_96.gif" width="710" height="60" alt=""></td>
+		<td colspan="6">
+			<input type="image" src="images/MainPageSignUpCompany_GetStartedButton.jpg" alt="Submit" width="490" height="60"  onclick="foo()" ></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_98.gif" width="2" height="60" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_99.gif" width="718" height="60" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpCompany_100.gif" width="710" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_101.gif" width="11" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_102.gif" width="57" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_103.gif" width="176" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_104.gif" width="176" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_105.gif" width="57" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_106.gif" width="13" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_107.gif" width="2" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpCompany_108.gif" width="718" height="207" alt=""></td>
+	</tr>
+</table>
+<!-- End Save for Web Slices -->
+</body>
+</html>

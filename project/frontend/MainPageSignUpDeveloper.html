@@ -1,0 +1,311 @@
+<html>
+<head>
+<title>MainPageSignUpDeveloper</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script type="text/Javascript">
+		var username;
+		var fullname;
+		var emailAddress;
+		var password;
+		function foo()
+		{
+			username = document.getElementById("text1").value;
+			fullname = document.getElementById("text2").value;	    
+            emailAddress = document.getElementById("text3").value;
+			password = document.getElementById("text4").value;
+			sendJSON();
+			//nextUrl();
+
+		}
+		function nextUrl()
+        {
+            window.location.href = "MainPageLogInDeveloper.html";
+			
+        }
+		function sendJSON(){ 
+          
+            // Creating a XHR object 
+			let result = document.querySelector('.result');			
+            let xhr = new XMLHttpRequest(); 
+            let url = "http://Localhost:8080/User/add"; 
+        
+            // open a connection 
+            xhr.open("POST", url, true); 
+            // Set the request header i.e. which type of content you are sending 
+            xhr.setRequestHeader("Content-Type", "application/json"); 
+            // Create a state change callback 
+            xhr.onreadystatechange = function () { 
+                if (xhr.readyState === 4 && xhr.status === 200) { 
+  
+                    // Print received data from server 
+                    var json = JSON.parse(xhr.responseText);
+  
+                } 
+            }; 
+  
+            // Converting JSON data to string 
+            var data = JSON.stringify({ "username":username, "name": fullname, "email" : emailAddress, "password": password, "basic_info": "Approved"} ); 
+ 
+            // Sending data with the request 
+            xhr.send(data);
+			
+			
+        }
+	</script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- Save for Web Slices (MainPageSignUpDeveloper.psd) -->
+<table id="Table_01" width="1920" height="1080" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_01.jpg" width="710" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_02.jpg" width="11" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_03.jpg" width="57" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_04.jpg" width="176" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_05.jpg" width="176" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_06.jpg" width="57" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_07.jpg" width="13" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_08.jpg" width="2" height="286" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_09.jpg" width="718" height="286" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_10.jpg" width="710" height="74" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_11.jpg" width="11" height="74" alt=""></td>
+		<td colspan="2">
+			<img src="images/MainPageSignUpDeveloper_SignUpButton.jpg" width="233" height="74" alt=""></td>
+		<td colspan="2">
+			<a href="MainPageLogInDeveloper.html"><img src="images/MainPageSignUpDeveloper_LogInButton.jpg" width="233" height="74" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_14.jpg" width="13" height="74" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_15.jpg" width="2" height="74" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_16.jpg" width="718" height="74" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_17.jpg" width="710" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_18.jpg" width="11" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_19.jpg" width="57" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_20.jpg" width="176" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_21.jpg" width="176" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_22.jpg" width="57" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_23.jpg" width="13" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_24.jpg" width="2" height="7" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_25.jpg" width="718" height="7" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_26.jpg" width="710" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_27.jpg" width="11" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_28.jpg" width="57" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_DeveloperButton.jpg" width="176" height="56" alt=""></td>
+		<td>
+			<a href="MainPageSignUpCompany.html"><img src="images/MainPageSignUpDeveloper_CompanyButton.jpg" width="176" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_31.jpg" width="57" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_32.jpg" width="13" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_33.jpg" width="2" height="56" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_34.jpg" width="718" height="56" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_35.jpg" width="710" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_36.jpg" width="11" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_37.jpg" width="57" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_38.jpg" width="176" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_39.jpg" width="176" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_40.jpg" width="57" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_41.jpg" width="13" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_42.jpg" width="2" height="106" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_43.jpg" width="718" height="106" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_44.jpg" width="710" height="47" alt=""></td>
+		
+		<td colspan="6" width="490" height="47" background="images/MainPageSignUpDeveloper_UsernameText.jpg" valign="middle"><input type="text" id = "text1" ></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_46.jpg" width="2" height="47" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_47.jpg" width="718" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_48.jpg" width="710" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_49.jpg" width="11" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_50.jpg" width="57" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_51.jpg" width="176" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_52.jpg" width="176" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_53.jpg" width="57" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_54.jpg" width="13" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_55.jpg" width="2" height="14" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_56.jpg" width="718" height="14" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_57.jpg" width="710" height="47" alt=""></td>
+		
+		<td colspan="6" width="490" height="47" background="images/MainPageSignUpDeveloper_NameText.jpg" valign="middle"><input type="text" id = "text2" ></td>
+		
+		<td>
+			<img src="images/MainPageSignUpDeveloper_59.jpg" width="2" height="47" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_60.jpg" width="718" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_61.jpg" width="710" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_62.jpg" width="11" height="22" alt=""></td>
+		<td>
+		  <img src="images/MainPageSignUpDeveloper_63.jpg" width="57" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_64.jpg" width="176" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_65.jpg" width="176" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_66.jpg" width="57" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_67.jpg" width="13" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_68.jpg" width="2" height="22" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_69.jpg" width="718" height="22" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+		  <img src="images/MainPageSignUpDeveloper_70.jpg" width="710" height="47" alt=""></td>
+		
+		<td colspan="6" width="490" height="47" background="images/MainPageSignUpDeveloper_EmailText.jpg" valign="middle"><input type="text" id = "text3" ></td>
+		
+		<td>
+			<img src="images/MainPageSignUpDeveloper_72.jpg" width="2" height="47" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_73.jpg" width="718" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_74.jpg" width="710" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_75.jpg" width="11" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_76.jpg" width="57" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_77.jpg" width="176" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_78.jpg" width="176" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_79.jpg" width="57" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_80.jpg" width="13" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_81.jpg" width="2" height="20" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_82.jpg" width="718" height="20" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_83.jpg" width="710" height="47" alt=""></td>
+		
+		<td colspan="6" width="490" height="47" background="images/MainPageSignUpDeveloper_PasswordText.jpg" valign="middle"><input type="password" id = "text4" >
+		</td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_85.jpg" width="2" height="47" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_86.jpg" width="718" height="47" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_87.jpg" width="710" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_88.jpg" width="11" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_89.jpg" width="57" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_90.jpg" width="176" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_91.jpg" width="176" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_92.jpg" width="57" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_93.jpg" width="13" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_94.jpg" width="2" height="40" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_95.jpg" width="718" height="40" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_96.jpg" width="710" height="60" alt=""></td>
+		<td colspan="6">
+			<input type="image" src="images/MainPageSignUpDeveloper_GetStartedButton.jpg" alt="Submit" width="490" height="60" onclick="foo()"></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_98.jpg" width="2" height="60" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_99.jpg" width="718" height="60" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_100.jpg" width="710" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_101.jpg" width="11" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_102.jpg" width="57" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_103.jpg" width="176" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_104.jpg" width="176" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_105.jpg" width="57" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_106.jpg" width="13" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_107.jpg" width="2" height="207" alt=""></td>
+		<td>
+			<img src="images/MainPageSignUpDeveloper_108.jpg" width="718" height="207" alt=""></td>
+	</tr>
+</table>
+<!-- End Save for Web Slices -->
+</body>
+</html>
