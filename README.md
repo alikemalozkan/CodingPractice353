@@ -13,7 +13,7 @@ Arif Usta
 
 
 ### Reports
-[Project Proposal](https://github.com/alikemalozkan/MasterCoding/raw/master/Proposal.pdf)<br />
+[Project Proposal](https://github.com/alikemalozkan/MediaOnline/raw/master/Proposal.pdf)<br />
 [Design Report]()<br />
 [Final Report]()<br />
 
