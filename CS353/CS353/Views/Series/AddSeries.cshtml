@@ -1,0 +1,37 @@
+﻿@model CS353.Models.Entity.TBLSeries
+@{
+    ViewBag.Title = "AddSeries";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class=" form-group" method="post">
+    <div></div>
+    <div style=" margin-top:15px">
+        <label>Series Name</label>
+        @Html.TextBoxFor(p => p.s_name, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Genre</label>
+        @Html.DropDownListFor(p => p.TBLGenre.g_id, (List<SelectListItem>)ViewBag.selectedGenres, new { @class = "Form-Control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Number Of Season</label>
+        @Html.TextBoxFor(p => p.s_numberOfSeason, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Number Of Episode</label>
+        @Html.TextBoxFor(p => p.s_numberOfEpisode, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Movie IMDB Point (Out of 10)</label>
+        @Html.TextBoxFor(p => p.s_imdbPoint, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Movie Info</label>
+        @Html.TextAreaFor(p => p.s_info, new { @class = "form-control" })
+    </div>
+
+    <div style=" margin-top:15px">
+        <button class="btn btn-info">Add Series </button>
+    </div>
+</form>

@@ -1,0 +1,44 @@
+﻿@model CS353.Models.Entity.TBLEpisode
+@{
+    ViewBag.Title = "FindEpisode";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateEpisode", "Episode", FormMethod.Post))
+{
+    <div style=" margin-bottom:20px; margin-top:20px"></div>
+    <div class="form-group">
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.e_id)
+            @Html.TextBoxFor(i => i.e_id, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.e_name)
+            @Html.TextBoxFor(i => i.e_name, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.e_seasonID)
+            @Html.DropDownListFor(p => p.TBLSeries.s_id, (List<SelectListItem>)ViewBag.selectedSeries, new { @class = "Form-Control" })
+        </div>
+
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.e_seasonNo)
+            @Html.TextBoxFor(i => i.e_seasonNo, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.e_episodeNo)
+            @Html.TextBoxFor(i => i.e_episodeNo, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.e_duration)
+            @Html.TextBoxFor(i => i.e_duration, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.e_info)
+            @Html.TextAreaFor(i => i.e_info, new { @class = "form-control" })
+        </div>
+        <div>
+            <button class="btn btn-warning">Update</button>
+        </div>
+    </div>
+}

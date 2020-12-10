@@ -1,0 +1,18 @@
+﻿@model CS353.Models.Entity.TBLWishlist
+@{
+    ViewBag.Title = "Wishlist";
+    Layout = "~/Views/Shared/_LayoutUserPage.cshtml";
+}
+
+<h2>Wishlist</h2>
+<br />
+<form class=" form-group" method="post">
+    <div></div>
+    <div style=" margin-top:15px">
+        <label>Wish Name</label>
+        @Html.TextAreaFor(x => x.w_name, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Send</button>
+    </div>
+</form>

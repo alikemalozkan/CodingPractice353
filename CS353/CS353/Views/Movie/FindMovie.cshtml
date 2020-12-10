@@ -1,0 +1,39 @@
+﻿@model CS353.Models.Entity.TBLMovie
+@{
+    ViewBag.Title = "FindMovie";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateMovie", "Movie", FormMethod.Post))
+{
+    <div style=" margin-bottom:20px; margin-top:20px"></div>
+    <div class="form-group">
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.m_id)
+            @Html.TextBoxFor(i => i.m_id, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.m_name)
+            @Html.TextBoxFor(i => i.m_name, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.m_duration)
+            @Html.TextBoxFor(i => i.m_duration, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.m_imdbPoint)
+            @Html.TextBoxFor(i => i.m_imdbPoint, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.m_genreID)
+            @Html.DropDownListFor(p => p.TBLGenre.g_id, (List<SelectListItem>)ViewBag.selectedGenres, new { @class = "Form-Control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.m_info)
+            @Html.TextAreaFor(i => i.m_info, new { @class = "form-control" })
+        </div>
+        <div>
+            <button class="btn btn-warning">Update</button>
+        </div>
+    </div>
+}

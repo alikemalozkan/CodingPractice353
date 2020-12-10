@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBCS353Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TBLChannel">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_name" Type="varchar" MaxLength="50" />
+          <Property Name="c_userID" Type="int" />
+          <Property Name="c_movieList" Type="varchar(max)" />
+          <Property Name="c_seriesList" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TBLComment">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_text" Type="varchar" MaxLength="250" />
+          <Property Name="c_user" Type="varchar" MaxLength="50" />
+          <Property Name="c_movieName" Type="varchar" MaxLength="50" />
+          <Property Name="c_seasonName" Type="varchar" MaxLength="50" />
+          <Property Name="c_episodeName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLEpisode">
+          <Key>
+            <PropertyRef Name="e_id" />
+          </Key>
+          <Property Name="e_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="e_name" Type="varchar" MaxLength="50" />
+          <Property Name="e_episodeNo" Type="int" />
+          <Property Name="e_seasonNo" Type="int" />
+          <Property Name="e_duration" Type="int" />
+          <Property Name="e_info" Type="varchar" MaxLength="300" />
+          <Property Name="e_seasonID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLFriend">
+          <Key>
+            <PropertyRef Name="f_id" />
+          </Key>
+          <Property Name="f_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f_user1" Type="varchar" MaxLength="50" />
+          <Property Name="f_user2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLGenre">
+          <Key>
+            <PropertyRef Name="g_id" />
+          </Key>
+          <Property Name="g_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="g_name" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TBLMessage">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="m_from" Type="varchar" MaxLength="50" />
+          <Property Name="m_to" Type="varchar" MaxLength="50" />
+          <Property Name="m_subject" Type="varchar" MaxLength="50" />
+          <Property Name="m_text" Type="varchar" MaxLength="50" />
+          <Property Name="m_time" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="TBLMovie">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="m_name" Type="varchar" MaxLength="50" />
+          <Property Name="m_duration" Type="int" />
+          <Property Name="m_imdbPoint" Type="float" />
+          <Property Name="m_info" Type="varchar" MaxLength="300" />
+          <Property Name="m_genreID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLSeries">
+          <Key>
+            <PropertyRef Name="s_id" />
+          </Key>
+          <Property Name="s_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="s_name" Type="varchar" MaxLength="50" />
+          <Property Name="s_numberOfSeason" Type="int" />
+          <Property Name="s_numberOfEpisode" Type="int" />
+          <Property Name="s_imdbPoint" Type="float" />
+          <Property Name="s_info" Type="varchar" MaxLength="300" />
+          <Property Name="s_genreID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLUser">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="u_name" Type="varchar" MaxLength="50" />
+          <Property Name="u_surname" Type="varchar" MaxLength="50" />
+          <Property Name="u_email" Type="varchar" MaxLength="70" />
+          <Property Name="u_password" Type="varchar" MaxLength="50" />
+          <Property Name="u_preferenceList" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="TBLWishlist">
+          <Key>
+            <PropertyRef Name="w_id" />
+          </Key>
+          <Property Name="w_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="w_user" Type="varchar" MaxLength="70" />
+          <Property Name="w_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TBLChannel_TBLUser">
+          <End Role="TBLUser" Type="Self.TBLUser" Multiplicity="0..1" />
+          <End Role="TBLChannel" Type="Self.TBLChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUser">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="TBLChannel">
+              <PropertyRef Name="c_userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLEpisode_TBLSeries">
+          <End Role="TBLSeries" Type="Self.TBLSeries" Multiplicity="0..1" />
+          <End Role="TBLEpisode" Type="Self.TBLEpisode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSeries">
+              <PropertyRef Name="s_id" />
+            </Principal>
+            <Dependent Role="TBLEpisode">
+              <PropertyRef Name="e_seasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLMovie_TBLGenre">
+          <End Role="TBLGenre" Type="Self.TBLGenre" Multiplicity="0..1" />
+          <End Role="TBLMovie" Type="Self.TBLMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLGenre">
+              <PropertyRef Name="g_id" />
+            </Principal>
+            <Dependent Role="TBLMovie">
+              <PropertyRef Name="m_genreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSeries_TBLGenre">
+          <End Role="TBLGenre" Type="Self.TBLGenre" Multiplicity="0..1" />
+          <End Role="TBLSeries" Type="Self.TBLSeries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLGenre">
+              <PropertyRef Name="g_id" />
+            </Principal>
+            <Dependent Role="TBLSeries">
+              <PropertyRef Name="s_genreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBCS353ModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLChannel" EntityType="Self.TBLChannel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLComment" EntityType="Self.TBLComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLEpisode" EntityType="Self.TBLEpisode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLFriend" EntityType="Self.TBLFriend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLGenre" EntityType="Self.TBLGenre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLMessage" EntityType="Self.TBLMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLMovie" EntityType="Self.TBLMovie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSeries" EntityType="Self.TBLSeries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLUser" EntityType="Self.TBLUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLWishlist" EntityType="Self.TBLWishlist" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLChannel_TBLUser" Association="Self.FK_TBLChannel_TBLUser">
+            <End Role="TBLUser" EntitySet="TBLUser" />
+            <End Role="TBLChannel" EntitySet="TBLChannel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLEpisode_TBLSeries" Association="Self.FK_TBLEpisode_TBLSeries">
+            <End Role="TBLSeries" EntitySet="TBLSeries" />
+            <End Role="TBLEpisode" EntitySet="TBLEpisode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLMovie_TBLGenre" Association="Self.FK_TBLMovie_TBLGenre">
+            <End Role="TBLGenre" EntitySet="TBLGenre" />
+            <End Role="TBLMovie" EntitySet="TBLMovie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSeries_TBLGenre" Association="Self.FK_TBLSeries_TBLGenre">
+            <End Role="TBLGenre" EntitySet="TBLGenre" />
+            <End Role="TBLSeries" EntitySet="TBLSeries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBCS353Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TBLChannel">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_userID" Type="Int32" />
+          <Property Name="c_movieList" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_seriesList" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLUser" Relationship="Self.FK_TBLChannel_TBLUser" FromRole="TBLChannel" ToRole="TBLUser" />
+        </EntityType>
+        <EntityType Name="TBLComment">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_text" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="c_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_movieName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_seasonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_episodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLEpisode">
+          <Key>
+            <PropertyRef Name="e_id" />
+          </Key>
+          <Property Name="e_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="e_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="e_episodeNo" Type="Int32" />
+          <Property Name="e_seasonNo" Type="Int32" />
+          <Property Name="e_duration" Type="Int32" />
+          <Property Name="e_info" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="e_seasonID" Type="Int32" />
+          <NavigationProperty Name="TBLSeries" Relationship="Self.FK_TBLEpisode_TBLSeries" FromRole="TBLEpisode" ToRole="TBLSeries" />
+        </EntityType>
+        <EntityType Name="TBLFriend">
+          <Key>
+            <PropertyRef Name="f_id" />
+          </Key>
+          <Property Name="f_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f_user1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_user2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLGenre">
+          <Key>
+            <PropertyRef Name="g_id" />
+          </Key>
+          <Property Name="g_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="g_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLMovie" Relationship="Self.FK_TBLMovie_TBLGenre" FromRole="TBLGenre" ToRole="TBLMovie" />
+          <NavigationProperty Name="TBLSeries" Relationship="Self.FK_TBLSeries_TBLGenre" FromRole="TBLGenre" ToRole="TBLSeries" />
+        </EntityType>
+        <EntityType Name="TBLMessage">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="m_from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="m_to" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="m_subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="m_text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="m_time" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TBLMovie">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="m_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="m_duration" Type="Int32" />
+          <Property Name="m_imdbPoint" Type="Double" />
+          <Property Name="m_info" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="m_genreID" Type="Int32" />
+          <NavigationProperty Name="TBLGenre" Relationship="Self.FK_TBLMovie_TBLGenre" FromRole="TBLMovie" ToRole="TBLGenre" />
+        </EntityType>
+        <EntityType Name="TBLSeries">
+          <Key>
+            <PropertyRef Name="s_id" />
+          </Key>
+          <Property Name="s_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="s_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_numberOfSeason" Type="Int32" />
+          <Property Name="s_numberOfEpisode" Type="Int32" />
+          <Property Name="s_imdbPoint" Type="Double" />
+          <Property Name="s_info" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="s_genreID" Type="Int32" />
+          <NavigationProperty Name="TBLEpisode" Relationship="Self.FK_TBLEpisode_TBLSeries" FromRole="TBLSeries" ToRole="TBLEpisode" />
+          <NavigationProperty Name="TBLGenre" Relationship="Self.FK_TBLSeries_TBLGenre" FromRole="TBLSeries" ToRole="TBLGenre" />
+        </EntityType>
+        <EntityType Name="TBLUser">
+          <Key>
+            <PropertyRef Name="u_id" />
+          </Key>
+          <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="u_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="u_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="u_preferenceList" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLChannel" Relationship="Self.FK_TBLChannel_TBLUser" FromRole="TBLUser" ToRole="TBLChannel" />
+        </EntityType>
+        <EntityType Name="TBLWishlist">
+          <Key>
+            <PropertyRef Name="w_id" />
+          </Key>
+          <Property Name="w_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="w_user" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="w_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_TBLChannel_TBLUser">
+          <End Role="TBLUser" Type="Self.TBLUser" Multiplicity="0..1" />
+          <End Role="TBLChannel" Type="Self.TBLChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLUser">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="TBLChannel">
+              <PropertyRef Name="c_userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLEpisode_TBLSeries">
+          <End Role="TBLSeries" Type="Self.TBLSeries" Multiplicity="0..1" />
+          <End Role="TBLEpisode" Type="Self.TBLEpisode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSeries">
+              <PropertyRef Name="s_id" />
+            </Principal>
+            <Dependent Role="TBLEpisode">
+              <PropertyRef Name="e_seasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLMovie_TBLGenre">
+          <End Role="TBLGenre" Type="Self.TBLGenre" Multiplicity="0..1" />
+          <End Role="TBLMovie" Type="Self.TBLMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLGenre">
+              <PropertyRef Name="g_id" />
+            </Principal>
+            <Dependent Role="TBLMovie">
+              <PropertyRef Name="m_genreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLSeries_TBLGenre">
+          <End Role="TBLGenre" Type="Self.TBLGenre" Multiplicity="0..1" />
+          <End Role="TBLSeries" Type="Self.TBLSeries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLGenre">
+              <PropertyRef Name="g_id" />
+            </Principal>
+            <Dependent Role="TBLSeries">
+              <PropertyRef Name="s_genreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBCS353Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TBLChannel" EntityType="Self.TBLChannel" />
+          <EntitySet Name="TBLComment" EntityType="Self.TBLComment" />
+          <EntitySet Name="TBLEpisode" EntityType="Self.TBLEpisode" />
+          <EntitySet Name="TBLFriend" EntityType="Self.TBLFriend" />
+          <EntitySet Name="TBLGenre" EntityType="Self.TBLGenre" />
+          <EntitySet Name="TBLMessage" EntityType="Self.TBLMessage" />
+          <EntitySet Name="TBLMovie" EntityType="Self.TBLMovie" />
+          <EntitySet Name="TBLSeries" EntityType="Self.TBLSeries" />
+          <EntitySet Name="TBLUser" EntityType="Self.TBLUser" />
+          <EntitySet Name="TBLWishlist" EntityType="Self.TBLWishlist" />
+          <AssociationSet Name="FK_TBLChannel_TBLUser" Association="Self.FK_TBLChannel_TBLUser">
+            <End Role="TBLUser" EntitySet="TBLUser" />
+            <End Role="TBLChannel" EntitySet="TBLChannel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLEpisode_TBLSeries" Association="Self.FK_TBLEpisode_TBLSeries">
+            <End Role="TBLSeries" EntitySet="TBLSeries" />
+            <End Role="TBLEpisode" EntitySet="TBLEpisode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLMovie_TBLGenre" Association="Self.FK_TBLMovie_TBLGenre">
+            <End Role="TBLGenre" EntitySet="TBLGenre" />
+            <End Role="TBLMovie" EntitySet="TBLMovie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLSeries_TBLGenre" Association="Self.FK_TBLSeries_TBLGenre">
+            <End Role="TBLGenre" EntitySet="TBLGenre" />
+            <End Role="TBLSeries" EntitySet="TBLSeries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBCS353ModelStoreContainer" CdmEntityContainer="DBCS353Entities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBCS353Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLChannel">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLChannel">
+              <MappingFragment StoreEntitySet="TBLChannel">
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="c_name" ColumnName="c_name" />
+                <ScalarProperty Name="c_userID" ColumnName="c_userID" />
+                <ScalarProperty Name="c_movieList" ColumnName="c_movieList" />
+                <ScalarProperty Name="c_seriesList" ColumnName="c_seriesList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLComment">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLComment">
+              <MappingFragment StoreEntitySet="TBLComment">
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="c_text" ColumnName="c_text" />
+                <ScalarProperty Name="c_user" ColumnName="c_user" />
+                <ScalarProperty Name="c_movieName" ColumnName="c_movieName" />
+                <ScalarProperty Name="c_seasonName" ColumnName="c_seasonName" />
+                <ScalarProperty Name="c_episodeName" ColumnName="c_episodeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLEpisode">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLEpisode">
+              <MappingFragment StoreEntitySet="TBLEpisode">
+                <ScalarProperty Name="e_id" ColumnName="e_id" />
+                <ScalarProperty Name="e_name" ColumnName="e_name" />
+                <ScalarProperty Name="e_episodeNo" ColumnName="e_episodeNo" />
+                <ScalarProperty Name="e_seasonNo" ColumnName="e_seasonNo" />
+                <ScalarProperty Name="e_duration" ColumnName="e_duration" />
+                <ScalarProperty Name="e_info" ColumnName="e_info" />
+                <ScalarProperty Name="e_seasonID" ColumnName="e_seasonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLFriend">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLFriend">
+              <MappingFragment StoreEntitySet="TBLFriend">
+                <ScalarProperty Name="f_id" ColumnName="f_id" />
+                <ScalarProperty Name="f_user1" ColumnName="f_user1" />
+                <ScalarProperty Name="f_user2" ColumnName="f_user2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLGenre">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLGenre">
+              <MappingFragment StoreEntitySet="TBLGenre">
+                <ScalarProperty Name="g_id" ColumnName="g_id" />
+                <ScalarProperty Name="g_name" ColumnName="g_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLMessage">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLMessage">
+              <MappingFragment StoreEntitySet="TBLMessage">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="m_from" ColumnName="m_from" />
+                <ScalarProperty Name="m_to" ColumnName="m_to" />
+                <ScalarProperty Name="m_subject" ColumnName="m_subject" />
+                <ScalarProperty Name="m_text" ColumnName="m_text" />
+                <ScalarProperty Name="m_time" ColumnName="m_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLMovie">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLMovie">
+              <MappingFragment StoreEntitySet="TBLMovie">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="m_name" ColumnName="m_name" />
+                <ScalarProperty Name="m_duration" ColumnName="m_duration" />
+                <ScalarProperty Name="m_imdbPoint" ColumnName="m_imdbPoint" />
+                <ScalarProperty Name="m_info" ColumnName="m_info" />
+                <ScalarProperty Name="m_genreID" ColumnName="m_genreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSeries">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLSeries">
+              <MappingFragment StoreEntitySet="TBLSeries">
+                <ScalarProperty Name="s_id" ColumnName="s_id" />
+                <ScalarProperty Name="s_name" ColumnName="s_name" />
+                <ScalarProperty Name="s_numberOfSeason" ColumnName="s_numberOfSeason" />
+                <ScalarProperty Name="s_numberOfEpisode" ColumnName="s_numberOfEpisode" />
+                <ScalarProperty Name="s_imdbPoint" ColumnName="s_imdbPoint" />
+                <ScalarProperty Name="s_info" ColumnName="s_info" />
+                <ScalarProperty Name="s_genreID" ColumnName="s_genreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLUser">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLUser">
+              <MappingFragment StoreEntitySet="TBLUser">
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+                <ScalarProperty Name="u_name" ColumnName="u_name" />
+                <ScalarProperty Name="u_surname" ColumnName="u_surname" />
+                <ScalarProperty Name="u_email" ColumnName="u_email" />
+                <ScalarProperty Name="u_password" ColumnName="u_password" />
+                <ScalarProperty Name="u_preferenceList" ColumnName="u_preferenceList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLWishlist">
+            <EntityTypeMapping TypeName="DBCS353Model.TBLWishlist">
+              <MappingFragment StoreEntitySet="TBLWishlist">
+                <ScalarProperty Name="w_id" ColumnName="w_id" />
+                <ScalarProperty Name="w_user" ColumnName="w_user" />
+                <ScalarProperty Name="w_name" ColumnName="w_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

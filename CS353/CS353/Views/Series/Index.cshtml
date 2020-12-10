@@ -1,0 +1,45 @@
+﻿@using CS353.Models.Entity
+@model List<TBLSeries>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Series</h2>
+
+@using (Html.BeginForm("Index", "Series", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Seach For Series </b>@Html.TextBox("p")
+        <input type="submit" value="Search" />
+    </div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Number Of Season</th>
+        <th>Number Of Episode</th>
+        <th>IMDB Point</th>
+        <th>Info</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+<tr>
+    <td>@i.s_id</td>
+    <td>@i.s_name</td>
+    <th>@i.TBLGenre.g_name</th>
+    <th>@i.s_numberOfSeason</th>
+    <th>@i.s_numberOfEpisode</th>
+    <th>@i.s_imdbPoint  /10</th>
+    <th>@i.s_info</th>
+    <td><a href="/Series/DeleteSeries/@i.s_id" class="btn btn-danger">Delete</a></td>
+    <td><a href="/Series/FindSeries/@i.s_id" class="btn btn-success">Update</a></td>
+</tr>
+    }
+</table>
+<a href="/Series/AddSeries/" class="btn btn-primary">Add Series </a>

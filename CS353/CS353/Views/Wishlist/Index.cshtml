@@ -1,0 +1,24 @@
+﻿@using CS353.Models.Entity
+@model List<TBLWishlist>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>WISHLIST</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Wish Name</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.w_id</td>
+            <td>@i.w_user</td>
+            <td>@i.w_name</td>           
+        </tr>
+    }
+</table>

@@ -1,0 +1,38 @@
+﻿@model CS353.Models.Entity.TBLUser
+@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class=" form-group" method="post">
+    <div></div>
+    <div style=" margin-top:15px">
+        <label>User Name</label>
+        @Html.TextBoxFor(c => c.u_name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.u_name, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>User Surname</label>
+        @Html.TextBoxFor(c => c.u_surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.u_surname, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>User Email</label>
+        @Html.TextBoxFor(c => c.u_email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.u_email, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>User Password</label>
+        @Html.TextBoxFor(c => c.u_password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.u_password, "", new { @style = "color:forestgreen" })
+    </div>
+
+    <div style=" margin-top:15px">
+        <label>User Preference List</label>
+        @Html.TextBoxFor(c => c.u_preferenceList, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.u_preferenceList, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style=" margin-top:15px">
+        <button class="btn btn-info">Add User</button>
+    </div>
+</form>

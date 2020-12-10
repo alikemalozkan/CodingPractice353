@@ -1,0 +1,26 @@
+﻿@using CS353.Models.Entity
+@model List<TBLMessage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUserPage.cshtml";
+}
+
+<h2>Inbox</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>From</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Date</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.m_from</td>
+            <td>@i.m_subject</td>
+            <td>@i.m_text</td>
+            <td>@i.m_time</td>
+        </tr>
+    }
+</table>

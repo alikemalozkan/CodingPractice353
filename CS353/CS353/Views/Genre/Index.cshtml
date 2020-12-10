@@ -1,0 +1,27 @@
+﻿@using CS353.Models.Entity
+@model List<TBLGenre>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>GENRES</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td id="id">@i.g_id</td>
+            <td>@i.g_name</td>
+            <td><a href="/Genre/DeleteGenre/@i.g_id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Genre/FindGenre/@i.g_id" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+</table>
+<a href="/Genre/AddGenre/" class="btn btn-primary">Add Genre</a>

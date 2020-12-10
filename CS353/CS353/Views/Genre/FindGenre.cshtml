@@ -1,0 +1,21 @@
+﻿@model CS353.Models.Entity.TBLGenre
+@{
+    ViewBag.Title = "FindGenre";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateGenre", "Genre", FormMethod.Post))
+{
+    <div style=" margin-bottom:20px; margin-top:20px"></div>
+    <div class="form-group">
+        @Html.LabelFor(i => i.g_id)
+        @Html.TextBoxFor(i => i.g_id, new { @class = "form-control" })
+
+        <br />
+        @Html.LabelFor(i => i.g_name)
+        @Html.TextBoxFor(i => i.g_name, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Update</button>
+    </div>
+}

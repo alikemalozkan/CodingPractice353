@@ -1,0 +1,44 @@
+﻿@model CS353.Models.Entity.TBLSeries
+@{
+    ViewBag.Title = "FindSeries";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateSeries", "Series", FormMethod.Post))
+{
+    <div style=" margin-bottom:20px; margin-top:20px"></div>
+    <div class="form-group">
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.s_id)
+            @Html.TextBoxFor(i => i.s_id, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.s_name)
+            @Html.TextBoxFor(i => i.s_name, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.s_genreID)
+            @Html.DropDownListFor(p => p.TBLGenre.g_id, (List<SelectListItem>)ViewBag.selectedGenres, new { @class = "Form-Control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.s_numberOfSeason)
+            @Html.TextBoxFor(i => i.s_numberOfSeason, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.s_numberOfEpisode)
+            @Html.TextBoxFor(i => i.s_numberOfEpisode, new { @class = "form-control" })
+        </div>
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.s_imdbPoint)
+            @Html.TextBoxFor(i => i.s_imdbPoint, new { @class = "form-control" })
+        </div>
+
+        <div style=" margin-bottom:20px">
+            @Html.LabelFor(i => i.s_info)
+            @Html.TextAreaFor(i => i.s_info, new { @class = "form-control" })
+        </div>
+        <div>
+            <button class="btn btn-warning">Update</button>
+        </div>
+    </div>
+}

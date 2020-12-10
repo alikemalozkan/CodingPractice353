@@ -1,0 +1,26 @@
+﻿@model CS353.Models.Entity.TBLMessage
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_LayoutUserPage.cshtml";
+}
+
+<h2>New Message</h2>
+<br />
+<form class=" form-group" method="post">
+    <div></div>
+    <div style=" margin-top:15px">
+        <label>To:</label>
+        @Html.TextBoxFor(x => x.m_to, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Subject</label>
+        @Html.TextBoxFor(x => x.m_subject, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Message</label>
+        @Html.TextAreaFor(x => x.m_text, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Send</button>
+    </div>
+</form>

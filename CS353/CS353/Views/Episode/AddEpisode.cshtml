@@ -1,0 +1,37 @@
+﻿@model CS353.Models.Entity.TBLEpisode
+@{
+    ViewBag.Title = "AddEpisode";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class=" form-group" method="post">
+    <div></div>
+    <div style=" margin-top:15px">
+        <label>Episode Name</label>
+        @Html.TextBoxFor(p => p.e_name, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Series</label>
+        @Html.DropDownListFor(p => p.TBLSeries.s_id, (List<SelectListItem>)ViewBag.selectedSeries, new { @class = "Form-Control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Season Number</label>
+        @Html.TextBoxFor(p => p.e_seasonNo, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Episode Number</label>
+        @Html.TextBoxFor(p => p.e_episodeNo, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Episode Duration in Minutes</label>
+        @Html.TextBoxFor(p => p.e_duration, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Movie Info</label>
+        @Html.TextAreaFor(p => p.e_info, new { @class = "form-control" })
+    </div>
+
+    <div style=" margin-top:15px">
+        <button class="btn btn-info">Add Episode </button>
+    </div>
+</form>

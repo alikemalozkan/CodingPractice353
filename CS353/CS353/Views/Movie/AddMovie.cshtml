@@ -1,0 +1,36 @@
+﻿@model CS353.Models.Entity.TBLMovie
+@{
+    ViewBag.Title = "AddMovie";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class=" form-group" method="post">
+    <div></div>
+    <div style=" margin-top:15px">
+        <label>Movie Name</label>
+        @Html.TextBoxFor(p => p.m_name, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Genre</label>
+        @Html.DropDownListFor(p => p.TBLGenre.g_id, (List<SelectListItem>)ViewBag.selectedGenre, new { @class = "Form-Control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Movie Duration in Minutes</label>
+        @Html.TextBoxFor(p => p.m_duration, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Movie IMDB Point (Out of 10)</label>
+        @Html.TextBoxFor(p => p.m_imdbPoint, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Movie Info</label>
+        @Html.TextAreaFor(p => p.m_info, new { @class = "form-control" })
+    </div>
+    <div style=" margin-top:15px">
+        <label>Movie Video Link</label>
+        
+    </div>
+    <div style=" margin-top:15px">
+        <button class="btn btn-info">Add Movie </button>
+    </div>
+</form>
