@@ -15,7 +15,7 @@ Arif Usta
 ### Reports
 [Project Proposal](https://github.com/alikemalozkan/MediaOnline/raw/master/Proposal.pdf)<br />
 [Design Report](https://github.com/alikemalozkan/MediaOnline/raw/master/DesignReport.pdf)<br />
-[Final Report]()<br />
+[Final Report](https://github.com/alikemalozkan/MediaOnline/raw/master/Final.pdf)<br />
 
 
 
